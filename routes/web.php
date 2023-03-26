@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +26,16 @@ Route::get('/', function() {
 Route::get('/orders', function() {
     return view('orders');
 });
+Route::get('/contact', function() {
+    return view('contact');
+});
+Route::get('/layouts', function() {
+    return view('layouts');
+});
+
+
+Route::get('orders', [ProductController::class, 'index'])->name('orders');
+Route::get('cart', [CartController::class, 'cart'])->name('cart');
+Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add_to_cart');
+Route::patch('update-cart', [CartController::class, 'update'])->name('update_cart');
+Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remove_from_cart');

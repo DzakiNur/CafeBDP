@@ -226,6 +226,37 @@ section{
 .btn2 span i:hover{
     transform: translateY(-5px);
 }
+
+.supported {
+    margin-top: 60px;
+    margin-bottom: -10px;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.supported .img1:hover {
+    scale: 1.1;
+    transition: 0.5s;
+}
+
+.supported .img2:hover {
+    scale: 1.1;
+    transition: 0.5s;
+}
+
+.supported .img3:hover {
+    scale: 1.1;
+    transition: 0.5s;
+}
+
+.supported img {
+    height: 30px;
+    margin: -40px 10px 10px 10px;
+}
+
+.supported .kiri-yaw {
+    margin-left: 0px;
+}
 /*===================================================
 # End Hero 
 =====================================================*/
@@ -233,6 +264,70 @@ section{
 
 /*===================================================
 # Menu Section 
+=====================================================*/
+.menu .favourite-menu {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:2rem;
+ }
+ 
+ .menu .favourite-menu .image{
+    flex:1 1 41rem;
+ }
+ 
+ .menu .favourite-menu .image img{
+    width: 100%;
+ }
+ 
+ .menu .favourite-menu .content{
+    flex:1 1 41rem;
+ }
+ 
+ .menu .favourite-menu .content .title{
+    font-size: 4rem;
+    color:var(--black);
+    font-family: 'Dosis', sans-serif;
+ }
+ 
+ .menu .favourite-menu .content p{
+    font-size: 1.7rem;
+    padding: 1rem 0;
+    line-height: 2;
+    font-family: 'Dosis', sans-serif;
+ }
+ 
+ .menu .favourite-menu .content .icons-container{
+    display: flex;
+    gap:2rem;
+    margin-top: 2rem;
+ }
+ 
+ .menu .favourite-menu .content .icons-container .icons{
+    flex:1 1 16rem;
+    text-align: center;
+    padding:3rem 2rem;
+ }
+ 
+ .menu .favourite-menu .content .icons-container .icons img{
+    height: 5rem;
+ }
+ 
+ .menu .favourite-menu .content .icons-container .icons h3{
+    padding-top: 1rem;
+    font-size: 2rem;
+    color:var(--light-black);
+    font-weight: normal;
+    font-family: 'Dosis', sans-serif;
+ }
+
+/*===================================================
+# End Menu 
+=====================================================*/
+
+
+/*===================================================
+# Order Menu
 =====================================================*/
 .sub-heading{
     text-align: center;
@@ -250,20 +345,20 @@ section{
     text-transform: uppercase;
 }
 
-.menu .box-container{
+.order .box-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap: 1.5rem;
 }
 
-.menu .box-container .box{
+.order .box-container .box{
     background: #fff;
     border: .1rem solid rgba(0, 0, 0, .2);
     border-radius: .5rem;
     box-shadow: var(--box-shadow);
 }
 
-.menu .box-container .box .image{
+.order .box-container .box .image{
     height: 25rem;
     width: 100%;
     padding: 1.5rem;
@@ -271,14 +366,14 @@ section{
     position: relative;
 }
 
-.menu .box-container .box .image img{
+.order .box-container .box .image img{
     height: 100%;
     width: 100%;
     border-radius: .5rem;
     object-fit: cover;
 }
 
-.menu .box-container .box .image .fa-heart{
+.order .box-container .box .image .fa-heart{
     position: absolute;
     top: 2rem;
     right: 2rem;
@@ -292,38 +387,38 @@ section{
     color: var(--black);
 }
 
-.menu .box-container .box .image .fa-heart:hover{
+.order .box-container .box .image .fa-heart:hover{
     background-color: var(--red);
     color: #fff;
 }
 
-.menu .box-container .box .content{
+.order .box-container .box .content{
     padding: 2rem;
     padding-top: 0;
 }
 
-.menu .box-container .box .content .stars{
+.order .box-container .box .content .stars{
     padding-bottom: 1rem;
 }
 
-.menu .box-container .box .content .stars i{
+.order .box-container .box .content .stars i{
     font-size: 2rem;
     color: var(--green);
 }
 
-.menu .box-container .box .content h3{
+.order .box-container .box .content h3{
     color: var(--black);
     font-size: 3rem;
 }
 
-.menu .box-container .box .content p{
+.order .box-container .box .content p{
     color: var(--light-color);
     font-size: 1.6rem;
     padding: .5rem 0;
     line-height: 1.5;
 }
 
-.menu .box-container .box .content .btn{
+.order .box-container .box .content .btn{
     margin-top: 1rem;
     display: inline-block;
     font-size: 1.7rem;
@@ -334,24 +429,129 @@ section{
     padding: .8rem 3rem;
 }
 
-.menu .box-container .box .content .btn:hover{
+.order .box-container .box .content .btn:hover{
     background-color: var(--red);
     letter-spacing: .1rem;
 }
 
-.menu .box-container .box .content .price{
+.order .box-container .box .content .price{
     color: var(--green);
     margin-left: 1rem;
     font-size: 2.5rem;
 }
 
 /*===================================================
-# End Menu 
+# End Order Menu
 =====================================================*/
 
 
 /*===================================================
-# Order Menu
+# Footer
+=====================================================*/
+
+.footercoi {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 140px;
+    margin-top: 120px;
+    animation: disappear 2s;
+}
+
+.footercoi div {
+    width: 160px;
+    height: 300px;
+    /* background-color: red; */
+    font-family: 'Montserrat', 'sans-serif';
+}
+
+.footercoi div ul li {
+    text-decoration: none;
+    list-style: none;
+    color: #000000;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 30px;
+}
+
+.footercoi .footlogo {
+    width: 260px;
+    height: 250px;
+}
+
+.footercoi .footlogo div {
+    height: 125px;
+    width: 260px;
+}
+
+.footercoi .footlogo .ea {
+    /* background-color: blue; */
+    display: flex;
+}
+
+.footercoi .footlogo .ea img {
+    width: 50px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.footercoi .footlogo .ea .wikbooksfoot {
+    font-family: 'Montserrat', 'sans-serif';
+    font-weight: 600;
+    font-size: 16px;
+    color: #000000;
+    position: absolute;
+    margin-left: 28px;
+}
+
+.eaa {
+    margin-top: -50px;
+
+}
+
+.judul2-ea {
+    font-family: 'Montserrat', 'sans-serif';
+    font-weight: 600;
+    font-size: 10px;
+    color: #000000;
+    margin-left: 28px;
+    padding-top: 10px;
+}
+
+.desk2-ea {
+    font-family: 'Montserrat', 'sans-serif';
+    font-weight: 500;
+    font-size: 10px;
+    color: #000000;
+    margin-left: 28px;
+}
+
+.footercoi .footlogo .ea .wikbooksfoot2 {
+    font-family: 'Montserrat', 'sans-serif';
+    font-weight: 500;
+    font-size: 10px;
+    color: #000000;
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 28px;
+}
+
+.footercoi div ul p {
+    color: #000000;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.footercoi div ul li a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.footercoi div ul li a:hover {
+    color: #00ac2b;
+}
+
+/*===================================================
+# End Footer
 =====================================================*/
 
 
