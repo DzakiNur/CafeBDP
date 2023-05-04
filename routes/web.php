@@ -23,9 +23,9 @@ Route::get('/', function() {
     return view('landing');
 });
 
-Route::get('/orders', function() {
-    return view('orders');
-});
+// Route::get('/orders', function() {
+//     return view('orders');
+// });
 Route::get('/contact', function() {
     return view('contact');
 });
@@ -34,8 +34,10 @@ Route::get('/layouts', function() {
 });
 
 
-Route::get('orders', [ProductController::class, 'index'])->name('orders');
+Route::get('/orders', [ProductController::class, 'index'])->name('orders');
 Route::get('cart', [CartController::class, 'cart'])->name('cart');
 Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add_to_cart');
 Route::patch('update-cart', [CartController::class, 'update'])->name('update_cart');
 Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remove_from_cart');
+Route::get('checkout', [CartController::class, 'checkout'])->name('checkout');
+Route::get('checkout-pesanan/{id}', [CartController::class, 'checkoutPesanan'])->name('checkout_pesanan');

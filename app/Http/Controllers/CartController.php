@@ -53,4 +53,27 @@ class CartController extends Controller
             session()->flash('success', 'Product successfully removed!');
         }
     }
+
+    public function checkout(){
+        return view('checkout');
+    }
+
+    public function checkoutPesanan($id)
+    {
+        $product = Product::findOrFail($id);
+        $checkout = session()->get('checkout', []);
+
+        if(isset($checkout[$id])) {
+            $checkout[$id] = [
+                "name" => $checkout->name,
+                "image" => $checkout->image,
+                "price" => $checkout->price,
+                "description" => $checkout->description,
+                "quantity" => $checkout->quantity,
+            ];
+        }
+
+        session()->put('checkout', $checkout);
+        return redirect('checkout');
+    }
 }
