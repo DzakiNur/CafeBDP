@@ -14,7 +14,8 @@
 <body>
     <div class="container mt-5">
         <table id="cart" class="table table-hover table-condensed">
-            <form action="">
+            <form action="{{route('checkout')}}" method="post">
+                @csrf
                 <thead>
                     <tr>
                         <th style="width:50%">Product</th>
@@ -35,14 +36,18 @@
                                         <div class="col-sm-3 hidden-xs"><img src="{{ $details['image'] }}" width="100" height="100" class="img-responsive"/></div>
                                         <div class="col-sm-9">
                                             <h4 class="nomargin">{{ $details['name'] }}</h4>
+                                            <input type="hidden" name="id_product" value="{{$id}}">
                                         </div>
                                     </div>
                                 </td>
                                 <td data-th="Price">Rp.{{ $details['price'] }}</td>
                                 <td data-th="Quantity">
-                                    <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity cart_update" min="1" />
+                                    <input type="number" name="total_pesanan[]" value="{{ $details['quantity'] }}" class="form-control quantity cart_update" min="1" />
                                 </td>
-                                <td data-th="Subtotal" class="text-center">Rp.{{ $details['price'] * $details['quantity'] }}</td>
+                                <td data-th="Subtotal" class="text-center">
+                                    <input type="hidden" name="totalPrice[]" value="{{$details['price'] * $details['quantity']}}">
+                                    Rp.{{ $details['price'] * $details['quantity'] }}
+                                </td>
                                 <td class="actions" data-th="">
                                     <button class="btn btn-danger btn-sm cart_remove"><i class="fa fa-trash-o"></i> Delete</button>
                                 </td>
@@ -56,8 +61,8 @@
                     </tr>
                     <tr>
                         <td colspan="5" class="text-right">
-                            <a href="{{ route('orders') }}" class="btn btn-danger"> <i class="fa fa-arrow-left"></i> Continue Shopping</a>
-                            <button class="btn btn-success"><i class="fa fa-money"></i> Checkout</button>
+                                <a href="{{ route('orders') }}" class="btn btn-danger"> <i class="fa fa-arrow-left"></i> Continue Shopping</a>
+                                <button class="btn btn-success"><i class="fa fa-money"></i> Checkout</button>
                         </td>
                     </tr>
                 </tfoot>

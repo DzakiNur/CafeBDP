@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Order;
 
 class CartController extends Controller
 {
@@ -54,26 +55,22 @@ class CartController extends Controller
         }
     }
 
-    public function checkout(){
-        return view('checkout');
-    }
-
-    public function checkoutPesanan($id)
+    public function checkout(Request $request)
     {
-        $product = Product::findOrFail($id);
-        $checkout = session()->get('checkout', []);
+        $id_product = $request->id_product;
+        $total_pesanan = $request->total_pesanan;
+        $totalPrice = $request->totalPrice;
+ 
+            for($i=0;$i<count((array)$id_product);$i++){
+                Order::create([
+                    'id_product' => $id_product[$i],
+                    'total_pesanan' => $total_pesanan[$i],
+                    'totalPrice' => $totalPrice[$i]
+                ]);
+            }
 
-        if(isset($checkout[$id])) {
-            $checkout[$id] = [
-                "name" => $checkout->name,
-                "image" => $checkout->image,
-                "price" => $checkout->price,
-                "description" => $checkout->description,
-                "quantity" => $checkout->quantity,
-            ];
-        }
-
-        session()->put('checkout', $checkout);
-        return redirect('checkout');
+        $request->session()->forget('cart');
+        
+        return redirect('/orders')->with('success', 'Product orders successfully!');
     }
 }
